@@ -29,9 +29,9 @@ var voice_button_p;
 
 function preload() {
     game.load.audio('voice', 'assetsAudio/voiceTest2.mp3');
-    game.load.image('ill', 'assetsImg/h0.jpg');   
-    game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',100,100);
-    game.load.spritesheet('right', 'assetsImg/arrowright_2.png',100,100);
+    game.load.image('ill', 'assetsImg/h0.png');   
+    game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',90,90);
+    game.load.spritesheet('right', 'assetsImg/arrowright_2.png',89,89);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
     ill_p=[game.world.centerX, game.world.centerY];
     left_p=[0, 250];
@@ -52,11 +52,12 @@ function create() {
 function play_sound(){
     voice.play();
 }
-function goRight(){
-    window.open("../DetermineWeight/d0.html", "_self");
-}
+
 function goLeft(){
     //window.open("scene1.html", "_self");
+}
+function goRight(){
+    window.open("h1.html", "_self");
 }
 function update(){
 }

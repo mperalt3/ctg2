@@ -29,7 +29,7 @@ var voice_button_p;
 
 function preload() {
     game.load.audio('voice', 'assetsAudio/voiceTest2.mp3');
-    game.load.image('ill', 'assetsImg/d0.jpg');   
+    game.load.image('ill', 'assetsImg/d3.png');   
     game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',100,100);
     game.load.spritesheet('right', 'assetsImg/arrowright_2.png',100,100);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
@@ -40,28 +40,22 @@ function preload() {
 }
 function create() {    
     game.stage.backgroundColor = "#FFFFFF";
-    //ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
-    //ill.anchor.setTo(0.5);
+    ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
+    ill.anchor.setTo(0.5);
     voice=game.add.audio('voice');
     voice.play();
     left=game.add.button(left_p[0], left_p[1], 'left', goLeft, this, 0);
     right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
     voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
-
-    var style = { font: "12px Arial", align: "center" };
-    var text = game.add.text(game.world.centerX, game.world.centerY, "Tutorial balanza 3", style);
-    text.anchor.setTo(0.5);
-
 }
 function play_sound(){
     voice.play();
 }
 function goRight(){
-    localStorage.setItem('seenTutorialB', 'true');
+    sessionStorage.setItem('seenTutorialB', 'true');
     window.open("balance.html", "_self");
 }
 function goLeft(){
-    console.log("back");
     window.open("d2.html", "_self");
 }
 function update(){

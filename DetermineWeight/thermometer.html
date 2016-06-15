@@ -55,17 +55,17 @@ function preload(){
     game.load.image('back', 'assetsImg/back.jpg');
     game.load.image('rule', 'assetsImg/termometro2.png');
     game.load.image('block', 'assetsImg/block.png');
-    game.load.spritesheet('reload', 'assetsImg/delete_2.png', 50,50);
-    game.load.spritesheet('goTable', 'assetsImg/shapes_2.png', 50,50);
+    game.load.spritesheet('reload', 'assetsImg/delete_2.png', 67,67);
+    game.load.spritesheet('goTable', 'assetsImg/shapes_2.png', 67,67);
     game.load.image('tfull', 'assetsImg/tablaCompleta2.png');
-    game.load.spritesheet('tools', 'assetsImg/choose_tool.png', 100,50);
+    game.load.spritesheet('tools', 'assetsImg/choose_tool.png', 200,85);
     game.load.image('ok', 'assetsImg/k.png');
-    A_p=[440, 60];
-    B_p=[560, 60];
+  	A_p=[475, 60];
+    B_p=[575, 60];
     C_p=[670, 60];
-    textA_p=[700, 220];
-    textB_p=[700, 288];
-    textC_p=[700, 356];
+    textA_p=[677, 288];
+    textB_p=[677, 356];
+    textC_p=[677, 424];
 }
 
 function create(){
@@ -77,13 +77,13 @@ function create(){
 	game.add.sprite(0, 0, 'back');
 
 	//Se crean los tres bloques de medición.  
-	block1=game.add.sprite(110,300,'block');
+	block1=game.add.sprite(115,345,'block');
 	block1.anchor.setTo(0.5);
 	block1.enableBody=true;
-	block2=game.add.sprite(300,300,'block');
+	block2=game.add.sprite(282,345,'block');
 	block2.anchor.setTo(0.5);
 	block2.enableBody=true;
-	block3=game.add.sprite(490,300,'block');
+	block3=game.add.sprite(449,345,'block');
 	block3.anchor.setTo(0.5);
 	block3.enableBody=true;
 
@@ -124,23 +124,23 @@ function create(){
 	rule1.body.collideWorldBounds = true;
 
 	//Se agregan los botones
-	button1=game.add.button(40,500, 'reload', eraseMeasure1, this, 1,0,2);
-	button11=game.add.button(130,500, 'goTable', goTable1, this, 1,0,2);
-	button2=game.add.button(225,500, 'reload', eraseMeasure2, this, 1,0,2);
-	button21=game.add.button(315,500, 'goTable', goTable2, this, 1,0,2);
-	button3=game.add.button(420,500, 'reload', eraseMeasure3, this, 1,0,2);
-	button31=game.add.button(510,500, 'goTable', goTable3, this, 1,0,2);
+	button1=game.add.button(40,480, 'reload', eraseMeasure1, this, 1,0,2);
+	button11=game.add.button(115,480, 'goTable', goTable1, this, 1,0,2);
+	button2=game.add.button(210,480, 'reload', eraseMeasure2, this, 1,0,2);
+	button21=game.add.button(285,480, 'goTable', goTable2, this, 1,0,2);
+	button3=game.add.button(375,480, 'reload', eraseMeasure3, this, 1,0,2);
+	button31=game.add.button(450,480, 'goTable', goTable3, this, 1,0,2);
 
-	buttontools=game.add.button(685,500,'tools', goTools, this,1,0,2);
+	buttontools=game.add.button(580,495,'tools', goTools, this,1,0,2);
 	reloadTable();
 
-	measure1.ok=game.add.sprite(165,185,'ok');
+	measure1.ok=game.add.sprite(165,250,'ok');
 	measure1.ok.anchor.setTo(0.5);
 	measure1.ok.visible=false;
-	measure2.ok=game.add.sprite(355,185,'ok');
+	measure2.ok=game.add.sprite(330,250,'ok');
 	measure2.ok.anchor.setTo(0.5);
 	measure2.ok.visible=false;
-	measure3.ok=game.add.sprite(544,185,'ok');
+	measure3.ok=game.add.sprite(500,250,'ok');
 	measure3.ok.anchor.setTo(0.5);
 	measure3.ok.visible=false;
 }
@@ -337,7 +337,7 @@ function goTable2 (){
 function checkfull(){
 	if (tableup.measures>=3){
 		tableup.fulltable=true;
-		tableup.lines= game.add.sprite(596,166,'tfull');
+		tableup.lines= game.add.sprite(577,222,'tfull');
 		localStorage.setItem('t_f', 'true');
 	}
 }

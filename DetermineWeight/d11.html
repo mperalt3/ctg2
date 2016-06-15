@@ -27,37 +27,69 @@ var C_button;
 var A_button_bool=false;
 var B_button_bool=false;
 var C_button_bool=false;
-var rA;
-var rB;
-var rC;
 var A_p;
 var B_p;
 var C_p;
-var ans=false;
-
 var ill_p;
 var left_p;
 var right_p;
 var voice_button_p;
 
+var table;
+var tableR;
+var tableL;
+var table_p;
+var tableR_p;
+var tableL_p;
+var label_B;
+var label_T;
+var label_R;
+var label_B_bool;
+var label_T_bool;
+var label_R_bool;
+var label_p;
+var style= { font: "12px Arial", align: "center" };
+var style2= { font: "24px Arial", align: "center" };
+var mb1;
+var mb2;
+var mb3;
+var mt1;
+var mt2;
+var mt3;
+var mr1;
+var mr2;
+var mr3;
+var m1_p;
+var m2_p;
+var m3_p;
+
 function preload() {
     game.load.audio('voice', 'assetsAudio/voiceTest2.mp3');
-    game.load.image('ill', 'assetsImg/d11.jpg');
-    //game.load.image('red', 'assetsImg/red2.png');
-    game.load.spritesheet('left', 'assetsImg/arrowleft_2.png', 100, 100);
+    game.load.image('ill', 'assetsImg/d11.png');
+    game.load.spritesheet('left', 'assetsImg/choose_tool2.png', 113, 61);
     game.load.spritesheet('right', 'assetsImg/arrowright_2.png', 100, 100);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
-    game.load.spritesheet('Abutton', 'assetsImg/b11a.png', 118, 81);
-    game.load.spritesheet('Bbutton', 'assetsImg/b11b.png', 118, 81);
-    game.load.spritesheet('Cbutton', 'assetsImg/b11c.png', 118, 82);
+    game.load.spritesheet('Abutton', 'assetsImg/b11a.png', 98, 100);
+    game.load.spritesheet('Bbutton', 'assetsImg/b11b.png', 98, 100);
+    game.load.spritesheet('Cbutton', 'assetsImg/b11c.png', 98, 100);
+    game.load.image('table', 'assetsImg/dinamic_table.png');
+    game.load.spritesheet('tableR', 'assetsImg/t_arrow_right.png', 24, 31);
+    game.load.spritesheet('tableL', 'assetsImg/t_arrow_left.png', 21, 30);
+
     ill_p=[game.world.centerX, game.world.centerY];
-    left_p=[0, 500];
+    left_p=[20, 500];
     right_p=[700, 500];
     voice_button_p= [380, 525];
-    A_p=[90, 240];
-    B_p=[90, 320];
-    C_p=[90, 400];
-
+    A_p=[120, 330];
+    B_p=[240, 330];
+    C_p=[360, 330];
+    table_p=[528, 186];
+    tableR_p=[710, 188];
+    tableL_p=[532, 188];
+    label_p=[635, 205];
+    m1_p=[640,290];
+    m2_p=[640,355];
+    m3_p=[640,435];
 }
 function create() {    
     game.stage.backgroundColor = "#FFFFFF";
@@ -77,23 +109,70 @@ function create() {
     C_button=game.add.button(C_p[0], C_p[1], 'Cbutton', goC ,this, 0);
     C_button.anchor.setTo(0.5);
 
-    var style = { font: "12px Arial", align: "center" };
-    var style2 = { font: "12px Arial", align: "center" };
-    mesb1= game.add.text(290, 260, localStorage.getItem('b_m1'), style2);
-    mesb1= game.add.text(290, 330, localStorage.getItem('b_m2'), style2);
-    mesb3= game.add.text(290, 410, localStorage.getItem('b_m3'), style2);
-    mesr1= game.add.text(482, 260, localStorage.getItem('r_m1'), style);
-    mesr2= game.add.text(482, 330, localStorage.getItem('r_m2'), style);
-    mesr3= game.add.text(482, 410, localStorage.getItem('r_m3'), style);
-    mest1= game.add.text(693, 260, localStorage.getItem('t_m1'), style);
-    mest2= game.add.text(693, 330, localStorage.getItem('t_m2'), style);
-    mest3= game.add.text(693, 410, localStorage.getItem('t_m3'), style);
+    create_dinamicTable();
 
+}
+function create_dinamicTable(){
+    table=game.add.sprite(table_p[0],table_p[1], 'table');
+    tableR=game.add.button(tableR_p[0], tableR_p[1], 'tableR', tableRight ,this, 0);
+    tableL=game.add.button(tableL_p[0], tableL_p[1], 'tableL', tableLeft ,this, 0);
+    label_B=game.add.text(label_p[0], label_p[1], "Balanza", style2);
+    label_B.anchor.setTo(0.5);
+    label_T=game.add.text(label_p[0], label_p[1], "Termómetro", style2);
+    label_T.anchor.setTo(0.5);
+    label_R=game.add.text(label_p[0], label_p[1], "Regla", style2);
+    label_R.anchor.setTo(0.5);
+    mb1=game.add.text(m1_p[0], m1_p[1]-10, sessionStorage.getItem('b_m1'), style);
+    mb2=game.add.text(m2_p[0], m2_p[1]-10, sessionStorage.getItem('b_m2'), style);
+    mb3=game.add.text(m3_p[0], m3_p[1]-10, sessionStorage.getItem('b_m3'), style);
+    mt1=game.add.text(m1_p[0], m1_p[1], sessionStorage.getItem('t_m1'), style);
+    mt2=game.add.text(m2_p[0], m2_p[1], sessionStorage.getItem('t_m2'), style);
+    mt3=game.add.text(m3_p[0], m3_p[1], sessionStorage.getItem('t_m3'), style);
+    mr1=game.add.text(m1_p[0], m1_p[1], sessionStorage.getItem('r_m1'), style);
+    mr2=game.add.text(m2_p[0], m2_p[1], sessionStorage.getItem('r_m2'), style);
+    mr3=game.add.text(m3_p[0], m3_p[1], sessionStorage.getItem('r_m3'), style);
+
+    label_B_bool=true;
+    label_T_bool=false;
+    label_R_bool=false;
+    tableL.visible=false;
+
+}
+function tableRight(){
+    if (label_B_bool){
+        label_B_bool=false;
+        label_T_bool=true;
+        label_R_bool=false;
+        tableL.visible=true;
+    }else if(label_T_bool){
+        label_B_bool=false;
+        label_T_bool=false;
+        label_R_bool=true;
+        tableR.visible=false;
+    }
+}
+function tableLeft(){
+    if (label_R_bool){
+        label_B_bool=false;
+        label_T_bool=true;
+        label_R_bool=false;
+        tableR.visible=true;
+    }else if(label_T_bool){
+        label_B_bool=true;
+        label_T_bool=false;
+        label_R_bool=false;
+        tableL.visible=false;
+    }
 }
 function play_sound(){
     voice.play();
 }
 function goRight(){
+    if(A_button_bool){
+        sessionStorage.setItem('i19', '1');
+    }else{
+        sessionStorage.setItem('i19', '0');
+    }
     window.open("d12.html", "_self");
 }
 function goLeft(){
@@ -137,6 +216,62 @@ function update(){
         right.visible=true;
     }
 
+    if(label_B_bool)
+    {
+        label_B.visible=true;
+        mb1.visible=true;
+        mb2.visible=true;
+        mb3.visible=true;
+
+
+        label_T.visible=false;
+        mt1.visible=false;
+        mt2.visible=false;
+        mt3.visible=false;
+
+        label_R.visible=false;
+        mr1.visible=false;
+        mr2.visible=false;
+        mr3.visible=false;
+    }
+
+    if(label_T_bool)
+    {
+        label_B.visible=false;
+        mb1.visible=false;
+        mb2.visible=false;
+        mb3.visible=false;
+
+
+        label_T.visible=true;
+        mt1.visible=true;
+        mt2.visible=true;
+        mt3.visible=true;
+
+        label_R.visible=false;
+        mr1.visible=false;
+        mr2.visible=false;
+        mr3.visible=false;
+    }
+
+    if(label_R_bool)
+    {
+        label_B.visible=false;
+        mb1.visible=false;
+        mb2.visible=false;
+        mb3.visible=false;
+
+
+        label_T.visible=false;
+        mt1.visible=false;
+        mt2.visible=false;
+        mt3.visible=false;
+
+        label_R.visible=true;
+        mr1.visible=true;
+        mr2.visible=true;
+        mr3.visible=true;
+    }
 }
 function render() {
     //game.debug.inputInfo(32, 32);
