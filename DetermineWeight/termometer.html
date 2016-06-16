@@ -60,7 +60,7 @@ function preload(){
     game.load.image('A', 'assetsImg/A.png');
     game.load.image('B', 'assetsImg/B.png');
     game.load.image('C', 'assetsImg/C.png');
-    game.load.image('back', 'assetsImg/backT.jpg');
+    game.load.image('back', 'assetsImg/backT.png');
     game.load.image('rule', 'assetsImg/termometro2.png');
     game.load.image('block', 'assetsImg/block.png');
     game.load.spritesheet('reload', 'assetsImg/delete_2.png', 66,67);
@@ -71,6 +71,7 @@ function preload(){
     game.load.image('ok', 'assetsImg/k.png');
     game.load.audio('voice', 'assetsAudio/voiceTest2.mp3');
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
+    game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
     A_p=[557, 73];
     B_p=[630, 73];
     C_p=[700, 73];
@@ -152,13 +153,22 @@ function create(){
 	add_table3=game.add.button(450,480, 'goTable', goTable3, this, 1,0,2);
 	//buttontools=game.add.button(580,495,'tools', goTools, this,1,0,2);
 	buttontutorial=game.add.button(50,50,'tutorial', goTutorial, this,1,0,2);
-	right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
-	right.visible=false;
 	
+	checkRight();
 	reloadTable();
 }
 function play_sound(){
     voice.play();
+}
+function checkRight(){
+	console.log(sessionStorage.getItem('cameFrom'));
+    if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
+        right=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
+    }
+    else{
+        right=game.add.button(right_p[0], right_p[1], 'right', goRight, this, 1,0,2);
+    }
+    right.visible=false;
 }
 function reloadTable(){
 	if(sessionStorage.getItem('t_m1')!=null){
@@ -358,6 +368,15 @@ function goRight(){
 }
 function goTutorial(){
 	window.open("d4.html", "_self");
+}
+function goOrder(){
+    var c=sessionStorage.getItem('cameFrom');
+    sessionStorage.setItem('cameFrom', '0');
+    if (c=='d12'){
+        window.open("d12.html", "_self");   
+    }else if(c=='d14'){
+        window.open("d14.html", "_self"); 
+    }
 }
 // Funciones para la fisica
 function startDrag(sprite){

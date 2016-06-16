@@ -95,6 +95,7 @@ function checkReady(){
     }
 }
 function checkRight(){
+    console.log(sessionStorage.getItem('cameFrom'));
     if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
         order=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
     }

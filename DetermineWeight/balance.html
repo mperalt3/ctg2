@@ -102,12 +102,13 @@ var voice;
 var voice_button;
 var voice_button_p;
 
+
 function preload(){
     game.load.image('ground', 'assetsImg/piso.png');
 	game.load.image('A', 'assetsImg/A.png');
     game.load.image('B', 'assetsImg/B.png');
     game.load.image('C', 'assetsImg/C.png');
-    game.load.image('back', 'assetsImg/backB.jpg');
+    game.load.image('back', 'assetsImg/backB.png');
     game.load.image('piv', 'assetsImg/pesa2.png');
     game.load.image('platei', 'assetsImg/pivote2d_3.png');
     game.load.image('plated', 'assetsImg/pivote2d_3.png');
@@ -130,6 +131,7 @@ function preload(){
     game.load.audio('voice', 'assetsAudio/voiceTest2.mp3');
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
 	game.load.spritesheet('button_tutorial','assetsImg/go_tutorial.png',98,46);
+	game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
 	A_p=[557, 73];
     B_p=[630, 73];
     C_p=[700, 73];
@@ -170,8 +172,6 @@ function create(){
 	voice.play();
 	voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
 	tutorial_button=game.add.button(tutorial_button_p[0], tutorial_button_p[1],'button_tutorial', watch_tutorial, this);
-	right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 1,0,2);
-	right.visible=false;
 
 	//Se crean los tres bloques de medición.
 	block1=game.add.sprite(block1_p[0], block1_p[1],'block');
@@ -360,7 +360,9 @@ function create(){
 	button3=game.add.button(375,480, 'basurero', eraseMeasure3, this, 1,0,2);
 	button31=game.add.button(450,480, 'add', goTable3, this, 1,0,2);
 
+	checkRight();
 	reloadTable();
+
 
 	console.log(sessionStorage.getItem('b_m1'));
 	console.log(sessionStorage.getItem('b_m2'));
@@ -368,6 +370,16 @@ function create(){
 }
 function play_sound(){
     voice.play();
+}
+function checkRight(){
+	console.log(sessionStorage.getItem('cameFrom'));
+    if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
+        right=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
+    }
+    else{
+        right=game.add.button(right_p[0], right_p[1], 'right', goRight, this, 1,0,2);
+    }
+    right.visible=false;
 }
 function reloadTable(){
 	console.log(sessionStorage.getItem('b_m1'));
@@ -731,6 +743,15 @@ function goTable3 (){
 }
 function goTools() {
 	window.open("d10.html", "_self");
+}
+function goOrder(){
+    var c=sessionStorage.getItem('cameFrom');
+    sessionStorage.setItem('cameFrom', '0');
+    if (c=='d12'){
+        window.open("d12.html", "_self");   
+    }else if(c=='d14'){
+        window.open("d14.html", "_self"); 
+    }
 }
 function goRight()
 {
