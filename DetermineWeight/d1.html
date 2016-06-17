@@ -42,6 +42,7 @@ function create() {
     game.stage.backgroundColor = "#FFFFFF";
     ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
     ill.anchor.setTo(0.5);
+    ill.scale.setTo(0.80,0.80);
     voice=game.add.audio('voice');
     voice.play();
     left=game.add.button(left_p[0], left_p[1], 'left', goLeft, this, 0);
