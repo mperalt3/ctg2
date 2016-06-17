@@ -34,15 +34,15 @@ function preload() {
     game.load.spritesheet('right', 'assetsImg/arrowright_2.png',100,100);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
     ill_p=[game.world.centerX, game.world.centerY];
-    left_p=[20,250];
-    right_p=[700, 250];
+    left_p=[20,500];
+    right_p=[700, 500];
     voice_button_p= [380, 525];
 }
 function create() {    
     game.stage.backgroundColor = "#FFFFFF";
     ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
     ill.anchor.setTo(0.5);
-    ill.scale.setTo(0.80,0.80);
+    ill.scale.setTo(0.85,0.85);
     voice=game.add.audio('voice');
     voice.play();
     left=game.add.button(left_p[0], left_p[1], 'left', goLeft, this, 0);
