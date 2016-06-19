@@ -66,16 +66,7 @@ function create() {
     rule_button=game.add.button(rule_button_p[0], rule_button_p[1], 'ruleButton', goRule ,this, 0);
     rule_button.anchor.setTo(0.5);
 
-    /*
-    sessionStorage.removeItem("t_m1");
-    sessionStorage.removeItem("t_m2");
-    sessionStorage.removeItem("t_m3");
-    sessionStorage.removeItem("r_m1");
-    sessionStorage.removeItem("r_m2");
-    sessionStorage.removeItem("r_m3");
-    sessionStorage.removeItem("b_m1");
-    sessionStorage.removeItem("b_m2");
-    sessionStorage.removeItem("b_m3");*/
+
     sessionStorage.removeItem('t_m1');
     sessionStorage.removeItem('t_m2');
     sessionStorage.removeItem('t_m3');
@@ -83,7 +74,6 @@ function create() {
     sessionStorage.removeItem('r_m2');
     sessionStorage.removeItem('r_m3');
     sessionStorage.removeItem('b_m1');
-    console.log(sessionStorage.getItem('b_m1'));
     sessionStorage.removeItem('b_m2', ' ');
     sessionStorage.removeItem('b_m3', ' ');
     sessionStorage.setItem('t_f', 'false');
@@ -94,6 +84,9 @@ function create() {
     sessionStorage.setItem('seenTutorialT', 'false');
     sessionStorage.setItem('seenTutorialR', 'false');
 
+    sessionStorage.setItem('seenTutorialT', 'true');
+    sessionStorage.setItem('seenTutorialB', 'true');
+    sessionStorage.setItem('seenTutorialR', 'true');
 }
 function play_sound(){
     voice.play();
@@ -108,17 +101,17 @@ function goLeft(){
 function goThermometer(){
     console.log("Termometro");
     sessionStorage.setItem("i13", "0");
-    window.open("d4.html", "_self");
+    window.open("termometer.html", "_self");
 }
 function goBalance(){
     console.log("Balanza");
     sessionStorage.setItem("i13", "1");
-    window.open("d1.html", "_self");
+    window.open("balance.html", "_self");
 }
 function goRule(){
     console.log("Regla");
     sessionStorage.setItem("i13", "0");
-    window.open("d7.html", "_self");
+    window.open("rule.html", "_self");
 }
 function update(){
 }

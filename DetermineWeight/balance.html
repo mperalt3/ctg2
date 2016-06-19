@@ -116,7 +116,7 @@ function preload(){
     game.load.spritesheet('basurero', 'assetsImg/delete_2.png', 66,67);
     game.load.spritesheet('add', 'assetsImg/shapes_2.png', 72,71);
     game.load.image('tfull', 'assetsImg/tablaCompleta2.png');
-    game.load.spritesheet('tools', 'assetsImg/choose_tool2.png', 113,60);
+    game.load.spritesheet('tools', 'assetsImg/choose_tool.png', 113,60);
     game.load.image('ok', 'assetsImg/k.png');
 	game.load.image('pesaBmayADer', 'assetsImg/pesaBmayADer2.png');
 	game.load.image('pesaBmayAIzq', 'assetsImg/pesaBmayAIzq2.png');
@@ -146,7 +146,6 @@ function preload(){
 	textA_p=[677, 268];
     textB_p=[677, 336];
     textC_p=[677, 404];
-    voice_button_p= [380, 525];
     ground_p=[535,190];
     p1l_p=[pivImg1_p[0]-20, pivImg1_p[1]-10];
 	p1r_p=[pivImg1_p[0]+20, pivImg1_p[1]-10];
@@ -160,7 +159,7 @@ function preload(){
 	measure2.cy=textB_p[1];
 	measure3.cx=textC_p[0];
 	measure3.cy=textC_p[1];
-	voice_button_p= [80, 100];
+	voice_button_p= [80, 120];
 
 }
 function create(){
@@ -171,7 +170,8 @@ function create(){
 	voice=game.add.audio('voice');
 	voice.play();
 	voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
-	tutorial_button=game.add.button(tutorial_button_p[0], tutorial_button_p[1],'button_tutorial', watch_tutorial, this);
+	//tutorial_button=game.add.button(tutorial_button_p[0], tutorial_button_p[1],'button_tutorial', watch_tutorial, this);
+	tools_button=game.add.button(tutorial_button_p[0], tutorial_button_p[1],'tools', goTools, this,0);
 
 	//Se crean los tres bloques de medición.
 	block1=game.add.sprite(block1_p[0], block1_p[1],'block');
