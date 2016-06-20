@@ -167,7 +167,7 @@ function preload() {
 
     game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
-    game.load.image('dialogo', 'assets/dialogo_big.png');
+    game.load.image('dialogo', 'assetsImg/part1_big_dialogue.png');
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 50, 50);
     game.load.audio('voice', 'assets/voice_big.mp3');
 }
@@ -219,11 +219,11 @@ function create() {
     */
 
 
-    var style_map= { font: "bold 24px Arial", fill: "#000000", align: "center" };
-		var style_map2= { font: "bold 14px Arial", fill: "#000000", align: "center" };
+    var style_map= { font: "bold 24px Arial", fill: "#ffffff", align: "center" };
+		var style_map2= { font: "bold 14px Arial", fill: "#ffffff", align: "center" };
 
-    var text_a = game.add.text(203, 218, "INICIO", style_map2);
-    var text_b = game.add.text(758, 560, "FIN", style_map);
+    var text_a = game.add.text(203, 218, "INVERNADERO", style_map2);
+    var text_b = game.add.text(725, 570, "ESTACIÓN", style_map2);
 
     createTileSelector();
 
@@ -332,8 +332,8 @@ function create() {
 
 
 
-    dialogo=game.add.image(210, 30, 'dialogo');
-		dialogo.scale.setTo(0.40,0.40);
+    dialogo=game.add.image(260, 30, 'dialogo');
+		dialogo.scale.setTo(0.80,0.80);
 
     voice_button = game.add.button(20, 525, 'voice_button', play_sound ,this, 1, 0, 2);
 
