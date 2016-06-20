@@ -150,7 +150,7 @@ function preload() {
 
     game.load.spritesheet('buttonreset', 'assetsImg/boton_reset2.png', 100, 50);
 
-    game.load.tilemap('map', 'assetsImg/tilemap_yes_no3.csv', null, Phaser.Tilemap.CSV);
+    game.load.tilemap('map', 'assetsImg/tilemap_yes_no4.csv', null, Phaser.Tilemap.CSV);
     game.load.image('tiles', 'assetsImg/tiles4.png');
     game.load.image('tileselector', 'assets/tileselector1.png');
 
@@ -161,11 +161,11 @@ function preload() {
 
     game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
-    game.load.image('dialogo', 'assets/yes_no/yes_no_dialogue3.png');
+    game.load.image('dialogo', 'assetsImg/yes_no_dialogue2.png');
 
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 50, 50);
 
-    game.load.audio('voice', 'assets/yes_no/yes_no_voice3.mp3');
+    game.load.audio('voice', 'assetsAudio/yes_no.m4a');
 }
 
 function create() {
@@ -325,7 +325,7 @@ function create() {
     back_button=game.add.button(30,525,'back', goBack, 0,1);
 
     dialogo=game.add.image(210, 30, 'dialogo');
-		dialogo.scale.setTo(0.40,0.40);
+		dialogo.scale.setTo(0.80,0.80);
 
     voice_button = game.add.button(120, 525, 'voice_button', play_sound ,this, 1, 0, 2);
 
@@ -422,7 +422,7 @@ function waterPath()
     if(!waterPathBool)
     {
         console.log("asd");
-        findPathGround(4,4);
+        findPathRock(4,4,0);
 
         // if(end1)
         //     findPathRock(startRock[0],startRock[1],0);
