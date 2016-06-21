@@ -96,11 +96,11 @@ function goLeft(){
 }
 function goRight(){
     if(A_press){
-        sessionStorage.setItem("i2", "0");
+        localStorage.setItem("i2", "0");
     }else if (B_press){
-        sessionStorage.setItem("i2", "1");
+        localStorage.setItem("i2", "1");
     }else{
-        sessionStorage.setItem("i2", "0");
+        localStorage.setItem("i2", "0");
     }
     window.open("../Story/h60.html", "_self");
 }
