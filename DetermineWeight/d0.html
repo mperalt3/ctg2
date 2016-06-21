@@ -67,26 +67,26 @@ function create() {
     rule_button.anchor.setTo(0.5);
 
 
-    sessionStorage.removeItem('t_m1');
-    sessionStorage.removeItem('t_m2');
-    sessionStorage.removeItem('t_m3');
-    sessionStorage.removeItem('r_m1');
-    sessionStorage.removeItem('r_m2');
-    sessionStorage.removeItem('r_m3');
-    sessionStorage.removeItem('b_m1');
-    sessionStorage.removeItem('b_m2', ' ');
-    sessionStorage.removeItem('b_m3', ' ');
-    sessionStorage.setItem('t_f', 'false');
-    sessionStorage.setItem('r_f', 'false');
-    sessionStorage.setItem('b_f', 'false');
-    sessionStorage.setItem('cameFrom', '0');
-    sessionStorage.setItem('seenTutorialB', 'false');
-    sessionStorage.setItem('seenTutorialT', 'false');
-    sessionStorage.setItem('seenTutorialR', 'false');
+    localStorage.removeItem('t_m1');
+    localStorage.removeItem('t_m2');
+    localStorage.removeItem('t_m3');
+    localStorage.removeItem('r_m1');
+    localStorage.removeItem('r_m2');
+    localStorage.removeItem('r_m3');
+    localStorage.removeItem('b_m1');
+    localStorage.removeItem('b_m2', ' ');
+    localStorage.removeItem('b_m3', ' ');
+    localStorage.setItem('t_f', 'false');
+    localStorage.setItem('r_f', 'false');
+    localStorage.setItem('b_f', 'false');
+    localStorage.setItem('cameFrom', '0');
+    localStorage.setItem('seenTutorialB', 'false');
+    localStorage.setItem('seenTutorialT', 'false');
+    localStorage.setItem('seenTutorialR', 'false');
 
-    sessionStorage.setItem('seenTutorialT', 'true');
-    sessionStorage.setItem('seenTutorialB', 'true');
-    sessionStorage.setItem('seenTutorialR', 'true');
+    localStorage.setItem('seenTutorialT', 'true');
+    localStorage.setItem('seenTutorialB', 'true');
+    localStorage.setItem('seenTutorialR', 'true');
 }
 function play_sound(){
     voice.play();
@@ -100,17 +100,17 @@ function goLeft(){
 }
 function goThermometer(){
     console.log("Termometro");
-    sessionStorage.setItem("i13", "0");
+    localStorage.setItem("i13", "0");
     window.open("termometer.html", "_self");
 }
 function goBalance(){
     console.log("Balanza");
-    sessionStorage.setItem("i13", "1");
+    localStorage.setItem("i13", "1");
     window.open("balance.html", "_self");
 }
 function goRule(){
     console.log("Regla");
-    sessionStorage.setItem("i13", "0");
+    localStorage.setItem("i13", "0");
     window.open("rule.html", "_self");
 }
 function update(){

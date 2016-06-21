@@ -122,15 +122,15 @@ function create_dinamicTable(){
     label_T.anchor.setTo(0.5);
     label_R=game.add.text(label_p[0], label_p[1], "Regla", style2);
     label_R.anchor.setTo(0.5);
-    mb1=game.add.text(m1_p[0], m1_p[1]-10, sessionStorage.getItem('b_m1'), style);
-    mb2=game.add.text(m2_p[0], m2_p[1]-10, sessionStorage.getItem('b_m2'), style);
-    mb3=game.add.text(m3_p[0], m3_p[1]-10, sessionStorage.getItem('b_m3'), style);
-    mt1=game.add.text(m1_p[0], m1_p[1], sessionStorage.getItem('t_m1'), style);
-    mt2=game.add.text(m2_p[0], m2_p[1], sessionStorage.getItem('t_m2'), style);
-    mt3=game.add.text(m3_p[0], m3_p[1], sessionStorage.getItem('t_m3'), style);
-    mr1=game.add.text(m1_p[0], m1_p[1], sessionStorage.getItem('r_m1'), style);
-    mr2=game.add.text(m2_p[0], m2_p[1], sessionStorage.getItem('r_m2'), style);
-    mr3=game.add.text(m3_p[0], m3_p[1], sessionStorage.getItem('r_m3'), style);
+    mb1=game.add.text(m1_p[0], m1_p[1]-10, localStorage.getItem('b_m1'), style);
+    mb2=game.add.text(m2_p[0], m2_p[1]-10, localStorage.getItem('b_m2'), style);
+    mb3=game.add.text(m3_p[0], m3_p[1]-10, localStorage.getItem('b_m3'), style);
+    mt1=game.add.text(m1_p[0], m1_p[1], localStorage.getItem('t_m1'), style);
+    mt2=game.add.text(m2_p[0], m2_p[1], localStorage.getItem('t_m2'), style);
+    mt3=game.add.text(m3_p[0], m3_p[1], localStorage.getItem('t_m3'), style);
+    mr1=game.add.text(m1_p[0], m1_p[1], localStorage.getItem('r_m1'), style);
+    mr2=game.add.text(m2_p[0], m2_p[1], localStorage.getItem('r_m2'), style);
+    mr3=game.add.text(m3_p[0], m3_p[1], localStorage.getItem('r_m3'), style);
 
     label_B_bool=true;
     label_T_bool=false;
@@ -169,9 +169,9 @@ function play_sound(){
 }
 function goRight(){
     if(A_button_bool){
-        sessionStorage.setItem('i19', '1');
+        localStorage.setItem('i19', '1');
     }else{
-        sessionStorage.setItem('i19', '0');
+        localStorage.setItem('i19', '0');
     }
     window.open("d12.html", "_self");
 }
