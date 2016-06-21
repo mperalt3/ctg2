@@ -53,22 +53,24 @@ function create() {
     var style = { font: "16px Calibri", align: "left" };
     game.add.text(text_p[0]-10, text_p[1], "Juego de preguntas:", style);
 
-    game.add.text(text_p[0]+350, text_p[1]+260, "Juego de encontrar el distinto:", style);
-    game.add.text(text_p[0]+360, text_p[1]+280, "Indicador 01 (f1,f2,f3,f4):    "+localStorage.getItem('i1'), style);
-    game.add.text(text_p[0]+360, text_p[1]+300, "Indicador 06 (f7,f8,f9,f10):   "+localStorage.getItem('i6'), style);
-    game.add.text(text_p[0]+360, text_p[1]+320, "Indicador 02 (f11):            "+localStorage.getItem('i2'), style);
+    game.add.text(text_p[0]+350, text_p[1]+320, "Juego de encontrar el distinto:", style);
+    game.add.text(text_p[0]+360, text_p[1]+340, "Indicador 01 (f1,f2,f3,f4):    "+localStorage.getItem('i1'), style);
+    game.add.text(text_p[0]+360, text_p[1]+360, "Indicador 06 (f7,f8,f9,f10):   "+localStorage.getItem('i6'), style);
+    game.add.text(text_p[0]+360, text_p[1]+380, "Indicador 02 (f11):            "+localStorage.getItem('i2'), style);
+		game.add.text(text_p[0]+360, text_p[1]+400, "Indicador 04 (f7,f8,f9,f10):   "+localStorage.getItem('i4'), style);
+    game.add.text(text_p[0]+360, text_p[1]+420, "Indicador 05 (f11):            "+localStorage.getItem('i5'), style);
 
-    game.add.text(text_p[0], text_p[1]+20, "Indicador 08 (q1):   "+sessionStorage.getItem('i8'), style);
-    game.add.text(text_p[0], text_p[1]+40, "Indicador 09 (q2):   "+sessionStorage.getItem('i9'), style);
-    game.add.text(text_p[0], text_p[1]+60, "Indicador 11 (q4):   "+sessionStorage.getItem('i11'), style);
-    game.add.text(text_p[0], text_p[1]+80, "Indicador 12 (q6):   "+sessionStorage.getItem('i12'), style);
-    game.add.text(text_p[0], text_p[1]+100, "Indicador 14 (q7):   "+sessionStorage.getItem('i14'), style);
-    game.add.text(text_p[0], text_p[1]+120, "Indicador 16 (q9):   "+sessionStorage.getItem('i16'), style);
-    game.add.text(text_p[0], text_p[1]+140, "Indicador 15 (q11):   "+sessionStorage.getItem('i15')+"*", style);
-    game.add.text(text_p[0], text_p[1]+160, "Indicador 10 (q12):   "+sessionStorage.getItem('i10'), style);
-    game.add.text(text_p[0], text_p[1]+180, "Indicador 18 (q13):   "+sessionStorage.getItem('i18'), style);
-    game.add.text(text_p[0], text_p[1]+200, "Indicador 29 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+sessionStorage.getItem("i29"), style);
-    game.add.text(text_p[0], text_p[1]+240, "Indicador 30 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+sessionStorage.getItem("i30"), style);
+    game.add.text(text_p[0], text_p[1]+20, "Indicador 08 (q1):   "+localStorage.getItem('i8'), style);
+    game.add.text(text_p[0], text_p[1]+40, "Indicador 09 (q2):   "+localStorage.getItem('i9'), style);
+    game.add.text(text_p[0], text_p[1]+60, "Indicador 11 (q4):   "+localStorage.getItem('i11'), style);
+    game.add.text(text_p[0], text_p[1]+80, "Indicador 12 (q6):   "+localStorage.getItem('i12'), style);
+    game.add.text(text_p[0], text_p[1]+100, "Indicador 14 (q7):   "+localStorage.getItem('i14'), style);
+    game.add.text(text_p[0], text_p[1]+120, "Indicador 16 (q9):   "+localStorage.getItem('i16'), style);
+    game.add.text(text_p[0], text_p[1]+140, "Indicador 15 (q11):   "+localStorage.getItem('i15')+"*", style);
+    game.add.text(text_p[0], text_p[1]+160, "Indicador 10 (q12):   "+localStorage.getItem('i10'), style);
+    game.add.text(text_p[0], text_p[1]+180, "Indicador 18 (q13):   "+localStorage.getItem('i18'), style);
+    game.add.text(text_p[0], text_p[1]+200, "Indicador 29 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+localStorage.getItem("i29"), style);
+    game.add.text(text_p[0], text_p[1]+240, "Indicador 30 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+localStorage.getItem("i30"), style);
     game.add.text(text_p[0], text_p[1]+280, "Indicador 27 (q12-1):   respuesta en papel", style);
 
     game.add.text(text_p[0]+350, text_p[1], "Juego de determinar peso:", style);
@@ -77,11 +79,17 @@ function create() {
     game.add.text(text_p[0]+360, text_p[1]+60, "Indicador 19 (d11):    "+localStorage.getItem('i19'), style);
     game.add.text(text_p[0]+360, text_p[1]+80, "Indicador 23 (d12):    "+localStorage.getItem('i23'), style);
     game.add.text(text_p[0]+360, text_p[1]+100, "Indicador 03 (d14):    "+localStorage.getItem('i3'), style);
+		game.add.text(text_p[0]+360, text_p[1]+120, "Indicador 28 (d0_1):    "+localStorage.getItem('i28'), style);
+		game.add.text(text_p[0]+360, text_p[1]+140, "Indicador 21 (d0_1):    "+localStorage.getItem('i21'), style);
 
-    game.add.text(text_p[0]+350, text_p[1]+140, "Juego de encontrar el distinto:", style);
-    game.add.text(text_p[0]+360, text_p[1]+160, "Indicador 01 (f1,f2,f3,f4):    "+sessionStorage.getItem('i1'), style);
-    game.add.text(text_p[0]+360, text_p[1]+180, "Indicador 06 (f7,f8,f9,f10):   "+sessionStorage.getItem('i6'), style);
-    game.add.text(text_p[0]+360, text_p[1]+200, "Indicador 02 (f11):            "+sessionStorage.getItem('i2'), style);
+		game.add.text(text_p[0]+350, text_p[1]+160, "Juego Mecanismo:", style);
+		game.add.text(text_p[0]+360, text_p[1]+180, "Indicador 7 (d0):    "+localStorage.getItem('i7'), style);
+		game.add.text(text_p[0]+360, text_p[1]+200, "Indicador 17 (rule, balance, termometer):   "+localStorage.getItem('i17'), style);
+		game.add.text(text_p[0]+360, text_p[1]+220, "Indicador 20 (d11):    "+localStorage.getItem('i20'), style);
+		game.add.text(text_p[0]+360, text_p[1]+240, "Indicador 22 (d12):    "+localStorage.getItem('i22'), style);
+		game.add.text(text_p[0]+360, text_p[1]+260, "Indicador 25 (d14):    "+localStorage.getItem('i25'), style);
+		game.add.text(text_p[0]+360, text_p[1]+280, "Indicador 26 (d0_1):    "+localStorage.getItem('i26'), style);
+		game.add.text(text_p[0]+360, text_p[1]+300, "Indicador 32 (d0_1):    "+localStorage.getItem('i32'), style);
 
 
 

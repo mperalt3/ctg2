@@ -256,7 +256,8 @@ function pasteMap()
 }
 
 function create() {
-
+    if(localStorage.getItem('i32')!='1')
+      localStorage.setItem('i32','0');
 
     //popupl.scale.set(0);
 
@@ -827,10 +828,10 @@ function waterPath()
             }
         }
 
-        if(end1 && end2)
-            openPopupW();
-        else
-            openPopupL();
+        if(end1)
+            localStorage.setItem('i17','1');
+        // else
+        //     openPopupL();
 
         waterPathBool=true;
     }
@@ -1392,7 +1393,7 @@ function openPopupW()
     closeButton.input.priorityID=1;
     //  Create a tween that will pop-open the window, but only if it's not already tweening or open
     tween = game.add.tween(popupw.scale).to( { x: 1, y: 1 }, 1000, Phaser.Easing.Elastic.Out, true);
-    localStorage.setItem('i17','1');
+
 }
 
 function openPopupL()

@@ -78,7 +78,7 @@ function create() {
     C= game.add.button(C_p[0], C_p[1],'C', AnsC, this, 0);
     C.anchor.setTo(0.5);
 
-    if(sessionStorage.getItem("bad")=="7"){
+    if(localStorage.getItem("bad")=="7"){
         left.visible=false;
     }
 }
@@ -105,19 +105,19 @@ function goLeft(){
 }
 function goRight(){
     if(A_press){
-        sessionStorage.setItem('i14', '0');
+        localStorage.setItem('i14', '0');
     }else if (B_press){
-        sessionStorage.setItem('i14', '1');
+        localStorage.setItem('i14', '1');
     }else{
-        sessionStorage.setItem('i14', '0');
+        localStorage.setItem('i14', '0');
     }
-    if(sessionStorage.getItem("bad")=="7"){
+    if(localStorage.getItem("bad")=="7"){
         if(A_press){
-                sessionStorage.setItem("i29","0");
+                localStorage.setItem("i29","0");
         }else if(B_press){
-                sessionStorage.setItem("i29","1");
+                localStorage.setItem("i29","1");
         }else{
-                sessionStorage.setItem("i29","0");
+                localStorage.setItem("i29","0");
         }
         window.open("../Story/h39.html", "_self");
     }
@@ -126,8 +126,8 @@ function goRight(){
     }
 }
 function goBack(){
-    sessionStorage.setItem('before', '7');
-    sessionStorage.setItem("i30","1");
+    localStorage.setItem('before', '7');
+    localStorage.setItem("i30","1");
     window.open("../Story/h23.html", "_self");
 }
 function update(){
