@@ -61,13 +61,15 @@ function create() {
     game.add.text(text_p[0], text_p[1]+140, "Indicador 15 (q11):   "+sessionStorage.getItem('i15')+"*", style);
     game.add.text(text_p[0], text_p[1]+160, "Indicador 10 (q12):   "+sessionStorage.getItem('i10'), style);
     game.add.text(text_p[0], text_p[1]+180, "Indicador 18 (q13):   "+sessionStorage.getItem('i18'), style);
+    game.add.text(text_p[0], text_p[1]+200, "Indicador 29 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+sessionStorage.getItem("i29"), style);
+    game.add.text(text_p[0], text_p[1]+240, "Indicador 30 (q1, q2, q4, q6, q7,\nq9, q11, q12, q13):   "+sessionStorage.getItem("i30"), style);
 
-    game.add.text(text_p[0]-10, text_p[1]+220, "Juego de encontrar el distinto:", style);
-    game.add.text(text_p[0], text_p[1]+240, "Indicador 01 (f1,f2,f3,f4):    "+sessionStorage.getItem('i1'), style);
-    game.add.text(text_p[0], text_p[1]+260, "Indicador 06 (f7,f8,f9,f10):   "+sessionStorage.getItem('i6'), style);
-    game.add.text(text_p[0], text_p[1]+280, "Indicador 02 (f11):            "+sessionStorage.getItem('i2'), style);
+    game.add.text(text_p[0]+350, text_p[1]+260, "Juego de encontrar el distinto:", style);
+    game.add.text(text_p[0]+360, text_p[1]+280, "Indicador 01 (f1,f2,f3,f4):    "+sessionStorage.getItem('i1'), style);
+    game.add.text(text_p[0]+360, text_p[1]+300, "Indicador 06 (f7,f8,f9,f10):   "+sessionStorage.getItem('i6'), style);
+    game.add.text(text_p[0]+360, text_p[1]+320, "Indicador 02 (f11):            "+sessionStorage.getItem('i2'), style);
 
-    game.add.text(text_p[0]+350, text_p[1], "Juego de encontrar el distinto:", style);
+    game.add.text(text_p[0]+350, text_p[1], "Juego de determinar peso:", style);
     game.add.text(text_p[0]+360, text_p[1]+20, "Indicador 13 (d0):    "+sessionStorage.getItem('i13'), style);
     game.add.text(text_p[0]+360, text_p[1]+40, "Indicador 24 (rule, balance, termometer):   "+sessionStorage.getItem('i24'), style);
     game.add.text(text_p[0]+360, text_p[1]+60, "Indicador 19 (d11):    "+sessionStorage.getItem('i19'), style);

@@ -47,7 +47,7 @@ function create() {
     //left=game.add.button(left_p[0], left_p[1], 'left', /*goLeft, this, 0);
     right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
     voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
-
+    console.log(sessionStorage.getItem("bad"));
 }
 function play_sound(){
     voice.play();
