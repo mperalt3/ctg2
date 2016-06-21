@@ -77,6 +77,10 @@ function create() {
     B.anchor.setTo(0.5);
     C= game.add.button(C_p[0], C_p[1],'C', AnsC, this, 0);
     C.anchor.setTo(0.5);
+
+    if(sessionStorage.getItem("bad")=="2"){
+        left.visible=false;
+    }
 }
 function play_sound(){
     voice.play();
@@ -101,16 +105,29 @@ function goLeft(){
 }
 function goRight(){
     if(A_press){
-        sessionStorage.setItem("i9", "0");
+        sessionStorage.setItem('i9', '0');
     }else if (B_press){
-        sessionStorage.setItem("i9", "1");
+        sessionStorage.setItem('i9', '1');
     }else{
-        sessionStorage.setItem("i9", "0");
+        sessionStorage.setItem('i9', '0');
     }
-    window.open("q3.html", "_self");
+    if(sessionStorage.getItem("bad")=="2"){
+        if(A_press){
+                sessionStorage.setItem("i29","0");
+        }else if(B_press){
+                sessionStorage.setItem("i29","1");
+        }else{
+                sessionStorage.setItem("i29","0");
+        }
+        window.open("../Story/h39.html", "_self");
+    }
+    else{
+        window.open("q3.html", "_self");
+    }
 }
 function goBack(){
     sessionStorage.setItem('before', '2');
+    sessionStorage.setItem("i30","1");
     window.open("../Story/h23.html", "_self");
 }
 function update(){

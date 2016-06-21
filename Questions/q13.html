@@ -77,6 +77,10 @@ function create() {
     B.anchor.setTo(0.5);
     C= game.add.button(C_p[0], C_p[1],'C', AnsC, this, 0);
     C.anchor.setTo(0.5);
+
+    if(sessionStorage.getItem("bad")=="13"){
+        left.visible=false;
+    }
 }
 function play_sound(){
     voice.play();
@@ -101,16 +105,77 @@ function goLeft(){
 }
 function goRight(){
     if(A_press){
-        sessionStorage.setItem("i18", "1");
+        sessionStorage.setItem('i18', '1');
     }else if (B_press){
-        sessionStorage.setItem("i18", "0");
+        sessionStorage.setItem('i18', '0');
     }else{
-        sessionStorage.setItem("i18", "0");
+        sessionStorage.setItem('i18', '0');
     }
-    window.open("../Story/h39.html", "_self");
+    if(sessionStorage.getItem("bad")=="13"){
+            if(A_press){
+                    sessionStorage.setItem("i29","1");
+            }else if(B_press){
+                    sessionStorage.setItem("i29","0");
+            }else{
+                    sessionStorage.setItem("i29","0");
+            }
+            window.open("../Story/h39.html", "_self");
+    }
+    
+    if(sessionStorage.getItem("bad")=="0"){
+        console.log(sessionStorage.getItem("bad"));
+        if(sessionStorage.getItem('i8')=='0' || sessionStorage.getItem('i9')=='0' || sessionStorage.getItem('i11')=='0'|| sessionStorage.getItem('i12')=='0' || sessionStorage.getItem('i14')=='0' || sessionStorage.getItem('i15')=='0' ||
+            sessionStorage.getItem('i16')=='0' || sessionStorage.getItem('i10')=='0' || sessionStorage.getItem('i18')=='0'){
+            
+            console.log("bad!!!");
+            if(sessionStorage.getItem('i8')=='0')
+            {
+              sessionStorage.setItem("bad","1");
+            }
+            else if(sessionStorage.getItem('i9')=='0')
+            {
+              sessionStorage.setItem("bad","2");
+            }
+            else if(sessionStorage.getItem('i11')=='0')
+            {
+              sessionStorage.setItem("bad","4");
+            }
+            else if(sessionStorage.getItem('i12')=='0')
+            {
+              sessionStorage.setItem("bad","6");
+            }
+            else if(sessionStorage.getItem('i14')=='0')
+            {
+              sessionStorage.setItem("bad","7");
+            }
+            else if(sessionStorage.getItem('i15')=='0')
+            {
+              sessionStorage.setItem("bad","11");
+            }
+            else if(sessionStorage.getItem('i16')=='0')
+            {
+              sessionStorage.setItem("bad","9");
+            }
+            else if(sessionStorage.getItem('i10')=='0')
+            {
+              sessionStorage.setItem("bad","12");
+            }
+            else if(sessionStorage.getItem('i18')=='0')
+            {
+              sessionStorage.setItem("bad","13");
+            }
+        window.open("check_bad.html", "_self");
+      }else{
+        console.log("No hay respuesta vacia");
+        window.open("../Story/h39.html", "_self");
+      }
+      
+    }
+
 }
 function goBack(){
     sessionStorage.setItem('before', '13');
+    sessionStorage.setItem("i30","1");
     window.open("../Story/h23.html", "_self");
 }
 function update(){
