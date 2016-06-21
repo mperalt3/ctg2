@@ -152,34 +152,30 @@ var buttonnum7bool=false;
 
 function preload() {
 
-    game.load.image('fondo', 'assets/textures/fondo3.png');
-    //game.load.image('rock', 'assets/rockchico.png');
-    game.load.image('grass', 'assets/grasschico.png');
+    // game.load.spritesheet('buttoncavar', 'assets/textures/tierra-cavada-75-2.png', 75,75);
 
-    game.load.spritesheet('buttoncavar', 'assets/textures/tierra-cavada-75-2.png', 75,75);
+    game.load.spritesheet('buttonpipe5', 'assetsImg/button_pipe5.png', 75,75);
+    game.load.spritesheet('buttonpipe6', 'assetsImg/button_pipe6.png', 75,75);
+    game.load.spritesheet('buttonpipe7', 'assetsImg/button_pipe7.png', 75,75);
+    game.load.spritesheet('buttonpipe8', 'assetsImg/button_pipe8.png', 75,75);
+    game.load.spritesheet('buttonpipe9', 'assetsImg/button_pipe9.png', 75,75);
+    game.load.spritesheet('buttonpipe10', 'assetsImg/button_pipe10.png', 75,75);
 
-    game.load.spritesheet('buttonpipe5', 'assets/textures/button_pipe5.png', 75,75);
-    game.load.spritesheet('buttonpipe4', 'assets/textures/button_pipe4.png', 75,75);
-    game.load.spritesheet('buttonpipe8', 'assets/textures/button_pipe8.png', 75,75);
-    game.load.spritesheet('buttonpipe9', 'assets/textures/button_pipe9.png', 75,75);
-    game.load.spritesheet('buttonpipe7', 'assets/textures/button_pipe7.png', 75,75);
-    game.load.spritesheet('buttonpipe6', 'assets/textures/button_pipe6.png', 75,75);
-
-    game.load.spritesheet('buttonerasedig', 'assets/textures/button_erase_dig_s.png', 50,50);
+    game.load.spritesheet('buttonerasedig', 'assetsImg/boton_goma_sprite.png', 100,100);
     game.load.spritesheet('buttonerasepipe', 'assets/textures/button_erase_pipe_s.png', 50,50);
 
-    game.load.spritesheet('buttonreleasewater', 'assets/textures/button_r_water.png', 100,50);
+    game.load.spritesheet('buttonreleasewater', 'assetsImg/button_r_rat.png', 100,50);
 
-    game.load.spritesheet('buttonenteranswer', 'assets/arrowright_2.png', 100,100);
-    game.load.spritesheet('buttonresetchico', 'assets/textures/boton_reset.png', 100,50);
+    game.load.spritesheet('buttonenteranswer', 'assetsImg/arrowright_2.png', 100,100);
+    game.load.spritesheet('buttonresetchico', 'assetsImg/boton_reset_chico.png', 100,50);
 
-    game.load.spritesheet('button_num1', 'assets/ins/1_2.png', 50,50);
-    game.load.spritesheet('button_num2', 'assets/ins/2_2.png', 50,50);
-    game.load.spritesheet('button_num3', 'assets/ins/3_2.png', 50,50);
-    game.load.spritesheet('button_num4', 'assets/ins/4_2.png', 50,50);
-    game.load.spritesheet('button_num5', 'assets/ins/5_2.png', 50,50);
-    game.load.spritesheet('button_num6', 'assets/ins/6_2.png', 50,50);
-    game.load.spritesheet('button_num7', 'assets/ins/7_2.png', 50,50);
+    game.load.spritesheet('button_num1', 'assetsImg/1.png', 50,50);
+    game.load.spritesheet('button_num2', 'assetsImg/2.png', 50,50);
+    game.load.spritesheet('button_num3', 'assetsImg/3.png', 50,50);
+    game.load.spritesheet('button_num4', 'assetsImg/4_1.png', 50,50);
+    game.load.spritesheet('button_num5', 'assetsImg/5_1.png', 50,50);
+    game.load.spritesheet('button_num6', 'assetsImg/6_1.png', 50,50);
+    game.load.spritesheet('button_num7', 'assetsImg/7.png', 50,50);
 
     game.load.spritesheet('button1', 'assets/button1.png', 100,50);
     game.load.spritesheet('button2', 'assets/button2.png', 100,50);
@@ -187,15 +183,17 @@ function preload() {
 
     game.load.spritesheet('back', 'assets/textures/back.png', 150,50);
 
-    game.load.spritesheet('buttonreset', 'assets/textures/boton_reset.png', 100, 50);
-    game.load.spritesheet('buttoncontinue', 'assets/boton_continue3.png', 100, 50);
+    game.load.spritesheet('back', 'assets/textures/back.png', 150,50);
 
-    game.load.tilemap('map', 'assets/tilemap_big8.csv', null, Phaser.Tilemap.CSV);
-    game.load.image('tiles', 'assets/tiles16.png');
+    game.load.spritesheet('buttonreset', 'assets/textures/boton_reset.png', 200, 100);
+    game.load.spritesheet('buttoncontinue', 'assetsImg/boton_continue2.png', 100, 50);
+
+    game.load.tilemap('map', 'assetsImg/tilemap_part1_ins7.csv', null, Phaser.Tilemap.CSV);
+    game.load.image('tiles', 'assetsImg/tiles4.png');
     game.load.image('tileselector', 'assets/tileselector1.png');
 
-    game.load.image('popup_win', 'assets/popup_w3.png');
-    game.load.image('popup_lose', 'assets/textures/popup_l3.png');
+    game.load.image('popup_win', 'assetsImg/popup_w.png');
+    game.load.image('popup_lose', 'assetsImg/popup_l3.png');
     game.load.image('popup_start', 'assets/textures/first_dialogue.png');
     game.load.image('buttonreset1', 'assets/textures/boton_reset.png');
 
@@ -203,9 +201,9 @@ function preload() {
 
     game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
-    game.load.image('dialogo', 'assets/dialogue_ins2_2.png');
+    game.load.image('dialogo', 'assetsImg/part2_ins_dialogue.png');
 
-    game.load.spritesheet('voice_button', 'assets/choose/button_voice2.png', 100, 50);
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
     game.load.audio('voice', 'assets/voice_part2_ins.mp3');
 }
 function copyMap()
@@ -273,8 +271,8 @@ function create() {
     var widthTiles=width/tileSize;
     var heigthTiles=height/tileSize;
 
-    //  A simple background for our game
-    game.add.sprite(0, 0, 'fondo');
+    // //  A simple background for our game
+    // game.add.sprite(0, 0, 'fondo');
 
     //  Because we're loading CSV map data we have to specify the tile size here or we can't render it
     map = game.add.tilemap('map', tileSize, tileSize);
@@ -322,12 +320,7 @@ function create() {
 
     game.input.addMoveCallback(updateMarker, this);
 
-    //botón dig
-    buttondig=game.add.button(520, 450, 'buttoncavar', buttonDig, this, 0, 0, 1, 0);
-    buttondig.input.useHandCursor = true;
-    buttondigbool=false;
 
-    buttondig.scale.setTo(0.75,0.75);
 
     //Botón pipe 5
     buttonpipe1 = game.add.button(590, 450, 'buttonpipe5', buttonPipe1Bool, this, 0, 0, 1, 0);
@@ -336,34 +329,34 @@ function create() {
     buttonpipe1.scale.setTo(0.75,0.75);
 
     //Botón pipe 4
-    buttonpipe2 = game.add.button(660, 450, 'buttonpipe4', buttonPipe2Bool, this, 0, 0, 1, 0);
+    buttonpipe2 = game.add.button(660, 450, 'buttonpipe6', buttonPipe2Bool, this, 0, 0, 1, 0);
     buttonpipe2.input.useHandCursor = true;
     buttonpipe2bool=false;
 
     buttonpipe2.scale.setTo(0.75,0.75);
     //Botón pipe 8
-    buttonpipe3 = game.add.button(730, 450, 'buttonpipe8', buttonPipe3Bool, this, 0, 0, 1, 0);
+    buttonpipe3 = game.add.button(730, 450, 'buttonpipe7', buttonPipe3Bool, this, 0, 0, 1, 0);
     buttonpipe3.input.useHandCursor = true;
     buttonpipe3bool=false;
 
     buttonpipe3.scale.setTo(0.75,0.75);
 
     //Botón pipe 9
-    buttonpipe4 = game.add.button(550, 525, 'buttonpipe9', buttonPipe4Bool, this, 0, 0, 1, 0);
+    buttonpipe4 = game.add.button(550, 525, 'buttonpipe8', buttonPipe4Bool, this, 0, 0, 1, 0);
     buttonpipe4.input.useHandCursor = true;
     buttonpipe4bool=false;
 
     buttonpipe4.scale.setTo(0.75,0.75);
 
     //Botón pipe 7
-    buttonpipe5 = game.add.button(620, 525, 'buttonpipe7', buttonPipe5Bool, this, 0, 0, 1, 0);
+    buttonpipe5 = game.add.button(620, 525, 'buttonpipe9', buttonPipe5Bool, this, 0, 0, 1, 0);
     buttonpipe5.input.useHandCursor = true;
     buttonpipe5bool=false;
 
     buttonpipe5.scale.setTo(0.75,0.75);
 
     //Botón pipe 6
-    buttonpipe6 = game.add.button(690, 525, 'buttonpipe6', buttonPipe6Bool, this, 0, 0, 1, 0);
+    buttonpipe6 = game.add.button(690, 525, 'buttonpipe10', buttonPipe6Bool, this, 0, 0, 1, 0);
     buttonpipe6.input.useHandCursor = true;
     buttonpipe6bool=false;
 
@@ -535,7 +528,7 @@ function create() {
     buttonnum7.input.useHandCursor = true;
 
     dialogo=game.add.image(210, 30, 'dialogo');
-    dialogo.scale.setTo(0.40,0.40);
+    dialogo.scale.setTo(0.80,0.80);
 
 
     popupw = game.add.sprite(game.world.centerX, game.world.centerY, 'popup_win');
@@ -668,7 +661,12 @@ function checkAnswer()
 
     if(bAux)
     {
-        openPopupW();
+      if(buttonnum5bool && buttonpipe4bool)
+        localStorage.setItem('i26','1');
+      else {
+        localStorage.setItem('i26','0');
+      }
+      window.open("../Mechanism/part3_ins.html", "_self");
     }
     else
     {
@@ -695,24 +693,21 @@ function updateMarker() {
     tileType=auxTile.index;
 
     //solo cavar
-    if (game.input.mousePointer.isDown && (tileType==0 || tileType==12) && currentTile==3)
+    if (game.input.activePointer.isDown && (tileType==0 || tileType==12) && currentTile==3)
     {
         map.putTile(currentTile, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
         // map.fill(currentTile, currentLayer.getTileX(marker.x), currentLayer.getTileY(marker.y), 4, 4, currentLayer);
     }
     //poner tuberías
-    else if(game.input.mousePointer.isDown && tileType==2 && (currentTile==4 || currentTile==5 || currentTile==6 || currentTile==7 || currentTile==8 || currentTile==9 ) && !buttonerasepipebool )
+    else if(game.input.activePointer.isDown && tileType==2 && (currentTile==4 || currentTile==5 || currentTile==6 || currentTile==7 || currentTile==8 || currentTile==9 ) && !buttonerasepipebool )
     {
         map.putTile(currentTile, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
     }
-    else if(game.input.mousePointer.isDown &&  (tileType==4 || tileType==5 || tileType==6 || tileType==7 || tileType==8 || tileType==9 ) && buttonerasepipebool )
+    else if(game.input.activePointer.isDown &&  (tileType==4 || tileType==5 || tileType==6 || tileType==7 || tileType==8 || tileType==9 ) && buttonerasepipebool )
     {
-        map.putTile(currentTile, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
+        map.putTile(2, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
     }
-    else if(game.input.mousePointer.isDown &&  tileType==3 && buttonerasedigbool )
-    {
-        map.putTile(currentTile, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
-    }
+
 
 }
 
@@ -762,10 +757,10 @@ function waterPath()
 
     if(!waterPathBool)
     {
-        findPathGround(4,4);
+        findPathRock(4,4,0);
 
-        if(end1)
-            findPathRock(6,5,0);
+        // if(end1)
+        //     findPathRock(6,5,0);
 
 /*        if(end2)
             findPathGround(6,9);
@@ -809,11 +804,22 @@ function waterPath()
                     var markerX = layer1.getTileX(i*50) ;
                     var markerY = layer1.getTileY(j*50) ;
 
-                    // console.log('\n X:'+markerX+' Y: '+markerY+' Tile: '+10);
+                    //Me paro en esta tile
+                    auxTile=map.getTile(markerX,markerY);
+                    index_tile=auxTile.index;
 
-                    map.putTile(10, markerX, markerY , layer1);
-
-                    console.log('\n X:'+i+' Y: '+j+' value:'+mapBackup[i][j]);
+                    if(index_tile==4)
+                      map.putTile(11, markerX, markerY , layer1);
+                    else if(index_tile==5)
+                      map.putTile(12, markerX, markerY , layer1);
+                    else if(index_tile==6)
+                      map.putTile(13, markerX, markerY , layer1);
+                    else if(index_tile==7)
+                      map.putTile(14, markerX, markerY , layer1);
+                    else if(index_tile==8)
+                      map.putTile(15, markerX, markerY , layer1);
+                    else if(index_tile==9)
+                      map.putTile(16, markerX, markerY , layer1);
                 }
             }
         }
@@ -868,10 +874,6 @@ function update()
         buttonnum7.frame=1;
     else
         buttonnum7.frame=0;
-    if(buttondigbool)
-        buttondig.frame=1;
-    else
-        buttondig.frame=0;
 
     if(buttonpipe1bool)
         buttonpipe1.frame=1;

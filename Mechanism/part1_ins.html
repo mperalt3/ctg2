@@ -175,7 +175,7 @@ function preload() {
 
     game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
-    game.load.image('dialogo', 'assets/dialogo8_2.png');
+    game.load.image('dialogo', 'assetsImg/part1_ins_dialogue.png');
     game.load.audio('voice', 'assets/voice_part1_ins.mp3');
 
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
@@ -479,7 +479,7 @@ function create() {
 
 
     dialogo=game.add.image(210, 30, 'dialogo');
-    dialogo.scale.setTo(0.40,0.40);
+    dialogo.scale.setTo(0.80,0.80);
 
 
     voice=game.add.audio('voice');
@@ -595,10 +595,7 @@ function updateMarker() {
     {
         map.putTile(2, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
     }
-    else if(game.input.activePointer.isDown && tileType==3 && buttonerasebool )
-    {
-        map.putTile(12, layer1.getTileX(marker.x), layer1.getTileY(marker.y), layer1);
-    }
+
 
 }
 

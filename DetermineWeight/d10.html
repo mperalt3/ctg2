@@ -78,25 +78,25 @@ function play_sound(){
     voice.play();
 }
 function checkReady(){
-    if(sessionStorage.getItem('t_f')=='true'){
+    if(localStorage.getItem('t_f')=='true'){
         thermometer_button.frame=1;
         ttext= game.add.text(thermometer_button_p[0], thermometer_button_p[1]+120, "¡Tabla completa!", style2);
         ttext.anchor.setTo(0.5);
     }
-    if(sessionStorage.getItem('b_f')=='true'){
+    if(localStorage.getItem('b_f')=='true'){
         balance_button.frame=1;
         ttext= game.add.text(balance_button_p[0], balance_button_p[1]+120, "¡Tabla completa!", style2);
         ttext.anchor.setTo(0.5);
     }
-    if(sessionStorage.getItem('r_f')=='true'){
+    if(localStorage.getItem('r_f')=='true'){
         rule_button.frame=1;
         ttext= game.add.text(rule_button_p[0], rule_button_p[1]+120, "¡Tabla completa!", style2);
         ttext.anchor.setTo(0.5);
     }
 }
 function checkRight(){
-    console.log(sessionStorage.getItem('cameFrom'));
-    if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
+    console.log(localStorage.getItem('cameFrom'));
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
         order=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
     }
     else{
@@ -104,13 +104,13 @@ function checkRight(){
     }
 }
 function checkOrder(){
-    if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
         order.visible=true;
     }
 }
 function goOrder(){
-    var c=sessionStorage.getItem('cameFrom');
-    sessionStorage.setItem('cameFrom', '0');
+    var c=localStorage.getItem('cameFrom');
+    localStorage.setItem('cameFrom', '0');
     if (c=='d12'){
         window.open("d12.html", "_self");   
     }else if(c=='d14'){
@@ -127,7 +127,7 @@ function goLeft(){
 }
 function goThermometer(){
     console.log("Termometro");
-    if(sessionStorage.getItem('seenTutorialT')=='false')
+    if(localStorage.getItem('seenTutorialT')=='false')
     {
         window.open("d4.html", "_self");
     }else{
@@ -137,7 +137,7 @@ function goThermometer(){
 }
 function goBalance(){
     console.log("Balanza");
-    if(sessionStorage.getItem('seenTutorialB')=='false')
+    if(localStorage.getItem('seenTutorialB')=='false')
     {
         window.open("d1.html", "_self");
     }else{
@@ -146,7 +146,7 @@ function goBalance(){
 }
 function goRule(){
     console.log("Regla");
-    if(sessionStorage.getItem('seenTutorialR')=='false')
+    if(localStorage.getItem('seenTutorialR')=='false')
     {
         window.open("d7.html", "_self");
     }else{

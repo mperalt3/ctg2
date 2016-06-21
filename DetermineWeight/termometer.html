@@ -162,8 +162,8 @@ function play_sound(){
     voice.play();
 }
 function checkRight(){
-	console.log(sessionStorage.getItem('cameFrom'));
-    if (sessionStorage.getItem('cameFrom')=='d12' || sessionStorage.getItem('cameFrom')=='d14' ){
+	console.log(localStorage.getItem('cameFrom'));
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
         right=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
     }
     else{
@@ -172,41 +172,41 @@ function checkRight(){
     right.visible=false;
 }
 function reloadTable(){
-	if(sessionStorage.getItem('t_m1')!=null){
-		textA = game.add.text(textA_p[0], textA_p[1], sessionStorage.getItem('t_m1'), style);
+	if(localStorage.getItem('t_m1')!=null){
+		textA = game.add.text(textA_p[0], textA_p[1], localStorage.getItem('t_m1'), style);
 		table.measures++;
 	}
-	if(sessionStorage.getItem('t_m2')!=null){
-		textB = game.add.text(textB_p[0], textB_p[1], sessionStorage.getItem('t_m2'), style);
+	if(localStorage.getItem('t_m2')!=null){
+		textB = game.add.text(textB_p[0], textB_p[1], localStorage.getItem('t_m2'), style);
 		table.measures++;
 	}
-	if(sessionStorage.getItem('t_m3')!=null){
-		textC = game.add.text(textC_p[0], textC_p[1], sessionStorage.getItem('t_m3'), style);
+	if(localStorage.getItem('t_m3')!=null){
+		textC = game.add.text(textC_p[0], textC_p[1], localStorage.getItem('t_m3'), style);
 		table.measures++;
 	}
 	checkfull();
 }
 function checkfull(){
-	if (table.measures>=2 && sessionStorage.getItem('i24')=="0"){
-		sessionStorage.setItem('i24', '1');
+	if (table.measures>=2 && localStorage.getItem('i24')=="0"){
+		localStorage.setItem('i24', '1');
 	}
 	if (table.measures>=3){
 		table.fulltable=true;
 		table.lines= game.add.sprite(572,220,'tfull');
-		sessionStorage.setItem('t_f', 'true');
+		localStorage.setItem('t_f', 'true');
 	}
 }
 function erasefull(){
 	if(table.fulltable==true){
 		table.fulltable=false;
 		table.lines.destroy();
-		sessionStorage.setItem('t_f', 'false');
+		localStorage.setItem('t_f', 'false');
 	}
 }
 function update(){
 	game.physics.arcade.collide(tanks, rules, onTouch, null, this);
 
-	if((measure1.blockused && measure2.blockused && measure3.blockused)||(sessionStorage.getItem('t_m1')!=null || sessionStorage.getItem('t_m2')!=null || sessionStorage.getItem('t_m3')!=null))
+	if((measure1.blockused && measure2.blockused && measure3.blockused)||(localStorage.getItem('t_m1')!=null || localStorage.getItem('t_m2')!=null || localStorage.getItem('t_m3')!=null))
         right.visible=true;
     else
     	right.visible=false;
@@ -284,7 +284,7 @@ function eraseMeasure1(){
 		if (measure1.intable== true){
 			measure1.intable=false;
 			table.measures--;
-			sessionStorage.removeItem("t_m1");
+			localStorage.removeItem("t_m1");
 			erasefull();
 		}
 	}
@@ -299,7 +299,7 @@ function eraseMeasure2(){
 		if (measure2.intable== true){
 			measure2.intable=false;
 			table.measures--;
-			sessionStorage.removeItem("t_m2");
+			localStorage.removeItem("t_m2");
 			erasefull();
 		}
 	}
@@ -314,7 +314,7 @@ function eraseMeasure3(){
 		if (measure3.intable== true){
 			measure3.intable=false;
 			table.measures--;
-			sessionStorage.removeItem("t_m3");
+			localStorage.removeItem("t_m3");
 			erasefull();
 		}
 	}
@@ -329,7 +329,7 @@ function goTable1 (){
 		measure1.result.visible=true;
 		measure1.intable= true;
 		table.measures++;
-		sessionStorage.setItem('t_m1', measure1.result._text);
+		localStorage.setItem('t_m1', measure1.result._text);
 		checkfull();		
 	}
 }
@@ -343,7 +343,7 @@ function goTable2 (){
 		measure2.result.visible=true;
 		measure2.intable= true;
 		table.measures++;
-		sessionStorage.setItem('t_m2', measure2.result._text);
+		localStorage.setItem('t_m2', measure2.result._text);
 		checkfull();		
 	}
 }
@@ -357,7 +357,7 @@ function goTable3 (){
 		measure3.result.visible=true;
 		measure3.intable= true;
 		table.measures++;
-		sessionStorage.setItem('t_m3', measure3.result._text);
+		localStorage.setItem('t_m3', measure3.result._text);
 		checkfull();		
 	}
 }
@@ -371,8 +371,8 @@ function goTutorial(){
 	window.open("d4.html", "_self");
 }
 function goOrder(){
-    var c=sessionStorage.getItem('cameFrom');
-    sessionStorage.setItem('cameFrom', '0');
+    var c=localStorage.getItem('cameFrom');
+    localStorage.setItem('cameFrom', '0');
     if (c=='d12'){
         window.open("d12.html", "_self");   
     }else if(c=='d14'){
